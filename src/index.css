@@ -12,7 +12,7 @@ ol {
 }
 
 section {
-  position: fixed;
+  position: sticky;
   max-width: 393px;
   margin: 0 auto;
   padding: 15px;

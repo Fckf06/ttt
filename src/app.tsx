@@ -29,7 +29,7 @@ export const App = () => {
               `translateY(${Math.max(0, window.visualViewport.offsetTop)}px)`,
             );
           }
-          scroll(0, 0);
+          // scroll(0, 0);
         }
       // });
     };
