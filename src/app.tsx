@@ -4,6 +4,7 @@ export const App = () => {
   const [height, setHeight] = useState('100%')
   const [translate, setTranslate] = useState('')
   const [focus, setFocus] = useState(false)
+  const [blur, setBlur] = useState(false)
 
   const arr = []
   for (let i = 0; i <= 200; i++) arr.push('N-8 88 888 8888 88888') 
@@ -16,14 +17,16 @@ export const App = () => {
       // requestAnimationFrame(() => {
         // pendingUpdate = false;
         if (window.visualViewport && window.visualViewport.offsetTop >= 0) {
-          setHeight(`${Math.max(0, window.visualViewport.height)}px`);
-          setTranslate(
-            `translateY(${Math.max(0, window.visualViewport.offsetTop)}px)`,
-          );
-        if (!focus) {
-          setHeight('100%')
-          setTranslate('')
-        }
+          if (blur && !focus) {
+            setHeight(`100%`);
+            setTranslate("");
+            setBlur(false)
+          } else {
+            setHeight(`${Math.max(0, window.visualViewport.height)}px`);
+            setTranslate(
+              `translateY(${Math.max(0, window.visualViewport.offsetTop)}px)`,
+            );
+          }
           scroll(0, 0);
         }
       // });
@@ -59,8 +62,8 @@ export const App = () => {
         </div>
         <form className='form'>
           <input 
-            onFocus={() => setFocus(true)}
-            onBlur={() => setFocus(false)}
+            onFocus={() => {setFocus(true), setBlur(false)}}
+            onBlur={() => {setFocus(false), setBlur(true)}}
           />
         </form>
       </section>
