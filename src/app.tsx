@@ -16,11 +16,11 @@ export const App = () => {
       // requestAnimationFrame(() => {
         // pendingUpdate = false;
         if (window.visualViewport && window.visualViewport.offsetTop >= 0) {
+          console.log(window.visualViewport.offsetTop);
           setHeight(`${Math.max(0, window.visualViewport.height)}px`);
           setTranslate(
             `translateY(${Math.max(0, window.visualViewport.offsetTop)}px)`,
           );
-          console.log(window.visualViewport);
           
           scroll(0, 0);
         }
