@@ -3,17 +3,18 @@ import { useEffect, useState } from 'react'
 export const App = () => {
   const [height, setHeight] = useState('100%')
   const [translate, setTranslate] = useState('')
+  // const [focus, setFocus] = useState('false')
 
   const arr = []
   for (let i = 0; i <= 200; i++) arr.push('N-8 88 888 8888 88888') 
-  console.log(window.visualViewport);
+
   useEffect(() => {
-    let pendingUpdate = false;
+    // let pendingUpdate = false;
     const viewportHandler = () => {
-      if (pendingUpdate) return;
-      pendingUpdate = true;
-      requestAnimationFrame(() => {
-        pendingUpdate = false;
+      // if (pendingUpdate) return;
+      // pendingUpdate = true;
+      // requestAnimationFrame(() => {
+        // pendingUpdate = false;
         if (window.visualViewport && window.visualViewport.offsetTop >= 0) {
           setHeight(`${Math.max(0, window.visualViewport.height)}px`);
           setTranslate(
@@ -23,7 +24,7 @@ export const App = () => {
           
           scroll(0, 0);
         }
-      });
+      // });
     };
 
     if (window.visualViewport && window.visualViewport.offsetTop >= 0) {
