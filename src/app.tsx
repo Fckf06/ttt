@@ -18,6 +18,8 @@ export const App = () => {
         // pendingUpdate = false;
         if (window.visualViewport && window.visualViewport.offsetTop >= 0) {
           if (blur && !focus) {
+            console.log('fb', focus, blur);
+            
             setHeight(`100%`);
             setTranslate("");
             setBlur(false)
