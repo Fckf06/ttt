@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export const App = () => {
-  const [height, setHeight] = useState('100dvh')
+  const [height, setHeight] = useState('100%')
   const [translate, setTranslate] = useState('')
 
   const arr = []
@@ -19,6 +19,8 @@ export const App = () => {
           setTranslate(
             `translateY(${Math.max(0, window.visualViewport.offsetTop)}px)`,
           );
+          console.log(window.visualViewport);
+          
           scroll(0, 0);
         }
       });
@@ -33,13 +35,12 @@ export const App = () => {
       if (window.visualViewport) {
         window.visualViewport.removeEventListener("scroll", viewportHandler);
         window.visualViewport.removeEventListener("resize", viewportHandler);
-        setHeight("100dvh");
+        setHeight("100%");
         setTranslate("");
       }
     };
   }, [setHeight, setTranslate]);
 
-  
   return (
       <section style={{height: height, transform: translate}} className='section'>
         <h2>Header</h2>

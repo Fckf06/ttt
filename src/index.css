@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body, #root {
+  height: 100%;
+}
 
 ol {
   list-style-position: inside;
@@ -10,7 +13,6 @@ ol {
 
 section {
   max-width: 393px;
-  /* min-height: 100dvh; */
   margin: 0 auto;
   padding: 15px;
   display: flex;
@@ -29,7 +31,6 @@ ol {
 h2 {
   border: 1px solid black;
   padding: 15px;
-  /* position: devise-fixed; */
 }
 
 li {
