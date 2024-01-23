@@ -29,7 +29,6 @@ export const App = () => {
               `translateY(${Math.max(0, window.visualViewport.offsetTop)}px)`,
             );
           }
-          scroll(0, 0);
         }
       // });
     };
@@ -64,7 +63,7 @@ export const App = () => {
         </div>
         <form className='form'>
           <input 
-            onFocus={() => {setFocus(true), setBlur(false), console.log('f')}}
+            onFocus={() => {setFocus(true), setBlur(false), console.log('f'), document.body.scrollIntoView()}}
             onBlur={() => {setFocus(false), setBlur(true), console.log('b')}}
           />
         </form>
