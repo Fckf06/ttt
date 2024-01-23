@@ -48,7 +48,7 @@ export const App = () => {
         setTranslate("");
       }
     };
-  }, [setHeight, setTranslate]);
+  }, [setHeight, setTranslate, focus, blur]);
 
   return (
       <section style={{height: height, transform: translate}} className='section'>
@@ -64,8 +64,8 @@ export const App = () => {
         </div>
         <form className='form'>
           <input 
-            onFocus={() => {setFocus(true), setBlur(false)}}
-            onBlur={() => {setFocus(false), setBlur(true)}}
+            onFocus={() => {setFocus(true), setBlur(false), console.log('f')}}
+            onBlur={() => {setFocus(false), setBlur(true), console.log('b')}}
           />
         </form>
       </section>
