@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 export const App = () => {
   const [height, setHeight] = useState('100%')
   const [translate, setTranslate] = useState('')
-  // const [focus, setFocus] = useState('false')
+  const [focus, setFocus] = useState(false)
 
   const arr = []
   for (let i = 0; i <= 200; i++) arr.push('N-8 88 888 8888 88888') 
@@ -16,18 +16,21 @@ export const App = () => {
       // requestAnimationFrame(() => {
         // pendingUpdate = false;
         if (window.visualViewport && window.visualViewport.offsetTop >= 0) {
-          console.log(window.visualViewport.offsetTop);
           setHeight(`${Math.max(0, window.visualViewport.height)}px`);
           setTranslate(
             `translateY(${Math.max(0, window.visualViewport.offsetTop)}px)`,
           );
-          
+        if (!focus) {
+          setHeight('100%')
+          setTranslate('')
+        }
           scroll(0, 0);
         }
       // });
     };
 
     if (window.visualViewport && window.visualViewport.offsetTop >= 0) {
+      console.log(window.visualViewport.height);
       window.visualViewport.addEventListener("scroll", viewportHandler);
       window.visualViewport.addEventListener("resize", viewportHandler);
     }
@@ -55,7 +58,10 @@ export const App = () => {
           </ol>
         </div>
         <form className='form'>
-          <input/>
+          <input 
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
+          />
         </form>
       </section>
   )
