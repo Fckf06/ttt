@@ -10,7 +10,7 @@ ol {
 
 section {
   max-width: 393px;
-  min-height: 100dvh;
+  /* min-height: 100dvh; */
   margin: 0 auto;
   padding: 15px;
   display: flex;

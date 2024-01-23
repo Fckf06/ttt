@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export const App = () => {
-  const [height, setHeight] = useState('100%')
+  const [height, setHeight] = useState('100dvh')
   const [translate, setTranslate] = useState('')
 
   const arr = []
@@ -33,7 +33,7 @@ export const App = () => {
       if (window.visualViewport) {
         window.visualViewport.removeEventListener("scroll", viewportHandler);
         window.visualViewport.removeEventListener("resize", viewportHandler);
-        setHeight("100%");
+        setHeight("100dvh");
         setTranslate("");
       }
     };
