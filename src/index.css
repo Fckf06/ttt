@@ -13,19 +13,19 @@ ol {
 }
 
 section {
-  position: sticky;
   max-width: 393px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 15px 0;
   display: flex;
   flex-flow: column;
 }
 .h2 {
-  position: fixed;
+  position: sticky;
 }
 .wrapper {
   position: relative;
   min-height: 100px;
+  padding: 0 15px;
   overflow-y: auto;
   flex: 1 1 auto;
 }
