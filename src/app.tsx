@@ -6,7 +6,7 @@ export const App = () => {
 
   const arr = []
   for (let i = 0; i <= 200; i++) arr.push('N-8 88 888 8888 88888') 
-
+  console.log(window.visualViewport);
   useEffect(() => {
     let pendingUpdate = false;
     const viewportHandler = () => {
